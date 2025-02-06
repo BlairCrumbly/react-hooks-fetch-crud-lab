@@ -8,7 +8,6 @@ function App() {
   const [questions, setQuestions] = useState([]);
 
   useEffect(() => {
-    
     fetch("http://localhost:4000/questions")
       .then((response) => response.json())
       .then((data) => setQuestions(data))
@@ -16,28 +15,41 @@ function App() {
   }, []);
 
   function handleDeleteQuestion(id) {
-    fetch(`http://localhost:4000/questions/${id}`, {
-      method: "DELETE",
-    })
+    fetch(`http://localhost:4000/questions/${id}`, { method: "DELETE" })
       .then(() => {
         setQuestions((prevQuestions) => prevQuestions.filter((q) => q.id !== id));
       })
       .catch((error) => console.error("Error deleting question:", error));
   }
 
-function handleAddQuestion(newQuestion) {
+  function handleAddQuestion(newQuestion) {
     fetch("http://localhost:4000/questions", {
       method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
+      headers: { "Content-Type": "application/json" },
       body: JSON.stringify(newQuestion),
     })
       .then((response) => response.json())
       .then((addedQuestion) => {
-        setQuestions((prevQuestions) => [...prevQuestions, addedQuestion]);
+        setQuestions((prevQuestions) => [...prevQuestions, addedQuestion]); // Update state
       })
       .catch((error) => console.error("Error adding question:", error));
+  }
+
+  function handleUpdateQuestion(id, newCorrectIndex) {
+    fetch(`http://localhost:4000/questions/${id}`, {
+      method: "PATCH",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ correctIndex: newCorrectIndex }),
+    })
+      .then((response) => response.json())
+      .then((updatedQuestion) => {
+        setQuestions((prevQuestions) =>
+          prevQuestions.map((q) =>
+            q.id === id ? { ...q, correctIndex: updatedQuestion.correctIndex } : q
+          )
+        );
+      })
+      .catch((error) => console.error("Error updating question:", error));
   }
 
   return (
@@ -46,7 +58,11 @@ function handleAddQuestion(newQuestion) {
       {page === "Form" ? (
         <QuestionForm onAddQuestion={handleAddQuestion} />
       ) : (
-        <QuestionList questions={questions} onDeleteQuestion={handleDeleteQuestion} />
+        <QuestionList
+          questions={questions}
+          onDeleteQuestion={handleDeleteQuestion}
+          onUpdateQuestion={handleUpdateQuestion}
+        />
       )}
     </main>
   );

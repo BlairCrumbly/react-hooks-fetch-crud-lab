@@ -1,17 +1,6 @@
 {
   "questions": [
     {
-      "id": "1",
-      "prompt": "What special prop should always be included for lists of elements?",
-      "answers": [
-        "id",
-        "name",
-        "key",
-        "prop"
-      ],
-      "correctIndex": 2
-    },
-    {
       "id": "5",
       "prompt": "What syntax makes it possible to unpack values from arrays, or properties from objects, into distinct variables?",
       "answers": [
@@ -20,7 +9,7 @@
         "coalescing",
         "destructuring"
       ],
-      "correctIndex": 3
+      "correctIndex": 2
     },
     {
       "id": "6",
@@ -34,17 +23,6 @@
       "correctIndex": 1
     },
     {
-      "prompt": "Whats Obamas last name",
-      "answers": [
-        "Barak",
-        "Obama",
-        "Smith",
-        "What? lol"
-      ],
-      "correctIndex": 1,
-      "id": "_zyIBDn"
-    },
-    {
       "prompt": "Whats Barak Obamas last name",
       "answers": [
         "What? lol",
@@ -54,6 +32,17 @@
       ],
       "correctIndex": 1,
       "id": "2Ijbqiq"
+    },
+    {
+      "prompt": "Whats the best candy",
+      "answers": [
+        "Nerds Gummy clusters",
+        "KitKats",
+        "Twix",
+        "Snickers"
+      ],
+      "correctIndex": 3,
+      "id": "2fKPwsh"
     }
   ]
 }
