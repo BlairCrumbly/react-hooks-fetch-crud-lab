@@ -9,7 +9,7 @@
         "coalescing",
         "destructuring"
       ],
-      "correctIndex": 2
+      "correctIndex": 1
     },
     {
       "id": "6",
@@ -43,6 +43,28 @@
       ],
       "correctIndex": 3,
       "id": "2fKPwsh"
+    },
+    {
+      "prompt": "Whats the power house of the cell?",
+      "answers": [
+        "mitochondria",
+        "Nucleus",
+        "",
+        ""
+      ],
+      "correctIndex": 0,
+      "id": "XusKglr"
+    },
+    {
+      "prompt": "pineapple or apple",
+      "answers": [
+        "apple",
+        "pineapple",
+        "",
+        ""
+      ],
+      "correctIndex": 1,
+      "id": "LtMgo0F"
     }
   ]
 }
